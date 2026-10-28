@@ -6,6 +6,17 @@ const interests = [
   { title: '음악', symbol: '♪', className: 'music', description: '제가 관심 있는 분야예요. 좋아하는 음악 이야기는 나중에 더 소개할게요.' },
 ]
 
+const projects = [
+  {
+    id: 'orchard-apple',
+    title: '과수원사과',
+    description: 'GitHub Copilot 사용법을 배워 본 개인 프로젝트',
+    activity: 'GitHub Copilot에 질문하고, 코드를 만들고, 웹사이트를 꾸며 보았습니다.',
+    workType: '개인 작업',
+    tools: 'GitHub Copilot',
+  },
+]
+
 function subscribeToNavigation(onChange) {
   window.addEventListener('hashchange', onChange)
   return () => window.removeEventListener('hashchange', onChange)
@@ -46,6 +57,24 @@ function ActivityPlaceholder() {
       <span className="example-label">준비 중</span>
       <h3>나의 활동과 작품이 들어올 자리</h3>
       <p>아직 등록한 활동이나 작품은 없어요.<br />나중에 사진, 제목, 짧은 설명을 함께 담을 수 있어요.</p>
+    </div>
+  )
+}
+
+function ProjectCards() {
+  if (projects.length === 0) return <ActivityPlaceholder />
+
+  return (
+    <div className="project-grid">
+      {projects.map((project) => (
+        <article className="project-card" key={project.id}>
+          <span className="example-label">{project.workType}</span>
+          <h3>{project.title}</h3>
+          <p className="project-description">{project.description}</p>
+          <p>{project.activity}</p>
+          <dl className="project-tools"><div><dt>사용 도구</dt><dd>{project.tools}</dd></div></dl>
+        </article>
+      ))}
     </div>
   )
 }
@@ -115,7 +144,7 @@ function App() {
           </section>
           <section className="story-section page-width" aria-labelledby="activities-title">
             <div className="section-heading"><p className="eyebrow">03 / 활동과 작품</p><h2 id="activities-title">경험을 담아 갈 공간<span>.</span></h2></div>
-            <ActivityPlaceholder />
+            <ProjectCards />
             <a className="text-link about-more" href="#/portfolio">활동과 작품 페이지 보기 <span aria-hidden="true">→</span></a>
           </section>
         </>}
@@ -131,13 +160,13 @@ function App() {
           <div className="page-width">
             <a className="text-link list-back" href="#home"><span aria-hidden="true">←</span> 홈으로 돌아가기</a>
             <div className="portfolio-heading"><div><p className="eyebrow">최민성의 기록 공간</p><h1 id="portfolio-title" tabIndex={-1}>활동과 작품<span>.</span></h1><p className="list-description">직접 해 본 활동과 작품을 차근차근 담을 공간이에요.</p></div></div>
-            <div className="list-summary"><span>등록한 활동과 작품</span><span>0</span></div>
-            <ActivityPlaceholder />
+            <div className="list-summary"><span>등록한 활동과 작품</span><span>{projects.length}</span></div>
+            <ProjectCards />
           </div>
         </section>}
         {isProjectPage && <section className="project-detail page-width" aria-labelledby="project-title">
           <a className="text-link list-back" href="#/portfolio"><span aria-hidden="true">←</span> 활동과 작품 목록으로</a>
-          <div className="project-not-found"><h1 id="project-title" tabIndex={-1}>작품을 찾을 수 없어요.</h1><p>아직 등록한 작품이 없어요. 활동과 작품 페이지를 확인해 주세요.</p><a className="button button-primary" href="#/portfolio">활동과 작품 보기 <span aria-hidden="true">→</span></a></div>
+          <div className="project-not-found"><h1 id="project-title" tabIndex={-1}>작품을 찾을 수 없어요.</h1><p>주소를 확인하거나 활동과 작품 페이지에서 소개를 확인해 주세요.</p><a className="button button-primary" href="#/portfolio">활동과 작품 보기 <span aria-hidden="true">→</span></a></div>
         </section>}
       </main>
       <footer className="site-footer page-width">

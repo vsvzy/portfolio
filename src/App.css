@@ -65,6 +65,15 @@ h2 > span, .about-page-heading h1 > span, .portfolio-page h1 > span { color: var
 .activity-placeholder { position: relative; margin-top: 32px; padding: 50px 24px; border: 1px solid var(--line); border-radius: 24px; background: radial-gradient(ellipse at 50% 0, #b697ff12, transparent 70%), #11121c; text-align: center; }
 .placeholder-symbol { display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; margin: 0 auto 20px; border: 1px solid #c4a4ff55; border-radius: 18px; color: var(--purple); font-size: 32px; transform: rotate(-8deg); }
 .activity-placeholder h3 { margin-top: 20px; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px; margin-top: 32px; }
+.project-card { min-width: 0; padding: 30px; border: 1px solid var(--line); border-radius: 24px; background: radial-gradient(ellipse at 100% 0, #b697ff18, transparent 70%), #14151f; }
+.project-card h3 { margin: 22px 0 12px; font-size: 28px; letter-spacing: -1px; overflow-wrap: anywhere; }
+.project-card p { color: var(--muted); font-size: 14px; line-height: 1.95; word-break: keep-all; }
+.project-card .project-description { color: #f1f0f8; }
+.project-tools { margin: 24px 0 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; }
+.project-tools > div { display: flex; flex-wrap: wrap; gap: 12px; }
+.project-tools dt { color: var(--accent); }
+.project-tools dd { margin: 0; color: var(--muted); }
 .about-more { margin-top: 24px; }
 .about-page, .project-detail { min-height: calc(100vh - 220px); padding-block: 44px 80px; }
 .list-back { margin-bottom: 42px; color: var(--muted); }
