@@ -1,22 +1,24 @@
 :root {
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', '맑은 고딕', sans-serif;
-  color: #242b23;
-  background: #faf9f6;
+  color: #f1f0f8;
+  background: #0b0c15;
+  color-scheme: dark;
   line-height: 1.5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --green: #315c44;
-  --muted: #72786c;
-  --line: #dfe1d8;
+  --accent: #baff68;
+  --purple: #c4a4ff;
+  --muted: #b0afc3;
+  --line: #ffffff21;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 110px; }
-body { margin: 0; min-width: 320px; }
+body { margin: 0; min-width: 280px; background: radial-gradient(ellipse at 90% 5%, #7950c416, transparent 35%), radial-gradient(ellipse at 0% 40%, #baff6806, transparent 40%); }
 a { color: inherit; text-decoration: none; }
 button, input, textarea { font: inherit; }
-::selection { background: #d5e6b2; color: #243e2f; }
-:focus-visible { outline: 2px solid var(--green); outline-offset: 5px; border-radius: 2px; }
+::selection { background: #baff68; color: #141a0c; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; border-radius: 4px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
